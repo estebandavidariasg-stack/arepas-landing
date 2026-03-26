@@ -19,14 +19,14 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="sticky top-0 z-50 mx-6 rounded-b-3xl shadow-lg"
+      className="sticky top-0 z-50 mx-2 md:mx-6 rounded-b-3xl shadow-lg"
       style={{ background: 'linear-gradient(135deg, #E8820C 0%, #F5A623 50%, #FFBE3D 100%)' }}
     >
-      <div className="w-full px-6 py-3 grid grid-cols-3 items-center">
+      <div className="w-full px-4 md:px-6 py-2 md:py-3 grid grid-cols-3 items-center">
 
         {/* Columna izquierda — Logo */}
         <Link to="/">
-          <div className="relative" style={{ width: '110px', height: '110px', marginLeft: '90px' }}>
+          <div className="relative" style={{ width: '70px', height: '70px' }}>
             <svg viewBox="0 0 140 140" className="absolute inset-0 w-full h-full">
               <circle cx="70" cy="70" r="68" fill="rgba(255,255,255,0.15)" />
               <defs>
@@ -42,35 +42,33 @@ export default function Navbar() {
               src={logo}
               alt="Logo"
               className="absolute"
-              style={{ width: '75px', height: '75px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', objectFit: 'contain' }}
+              style={{ width: '48px', height: '48px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', objectFit: 'contain' }}
             />
           </div>
         </Link>
 
-        {/* Columna central — Links */}
-        <div className="hidden md:flex items-center justify-center gap-8" style={{ marginLeft: '120px' }}>
+        {/* Columna central — Links escritorio */}
+        <div className="hidden md:flex items-center justify-center gap-6">
           <Link
             to="/"
             className="hover:text-white transition-colors text-verde"
-            style={{ fontFamily: 'Fredoka', fontWeight: 600, fontSize: '25px', marginRight: '60px' }}
+            style={{ fontFamily: 'Fredoka', fontWeight: 600, fontSize: '20px' }}
           >
             Inicio
           </Link>
-
           <button
             onClick={irAMayorista}
             className="hover:text-white transition-colors text-verde"
-            style={{ fontFamily: 'Fredoka', fontWeight: 600, fontSize: '25px', marginRight: '40px', background: 'none', border: 'none', cursor: 'pointer' }}
+            style={{ fontFamily: 'Fredoka', fontWeight: 600, fontSize: '20px', background: 'none', border: 'none', cursor: 'pointer' }}
           >
             Mayorista
           </button>
-
           <a
             href="https://wa.me/573124067757"
             target="_blank"
             rel="noreferrer"
             className="bg-white text-verde rounded-full hover:bg-verde hover:text-white transition-all duration-300 whitespace-nowrap"
-            style={{ fontFamily: 'Fredoka', fontWeight: 700, fontSize: '25px', padding: '10px 40px' }}
+            style={{ fontFamily: 'Fredoka', fontWeight: 700, fontSize: '18px', padding: '8px 28px' }}
           >
             Pedir Ahora
           </a>
@@ -79,10 +77,18 @@ export default function Navbar() {
         {/* Columna derecha — Hamburguesa móvil */}
         <div className="flex justify-end">
           <button
-            className="md:hidden text-white font-bold text-2xl"
+            className="md:hidden text-white px-2"
             onClick={() => setOpen(!open)}
           >
-            {open ? 'X' : 'Menu'}
+            {open ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
@@ -94,16 +100,21 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden flex flex-col items-center gap-4 pt-2 pb-4"
-            style={{ fontFamily: 'Fredoka', fontWeight: 700 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden flex flex-col items-center gap-4 pt-4 pb-6 rounded-b-3xl"
+            style={{ 
+              fontFamily: 'Fredoka', 
+              fontWeight: 700, 
+              background: 'linear-gradient(135deg, #E8820C 0%, #F5A623 50%, #FFBE3D 100%)'
+            }}
           >
-            <Link to="/" className="text-white" onClick={() => setOpen(false)}>
+            <Link to="/" className="text-white text-xl py-2" onClick={() => setOpen(false)}>
               Inicio
             </Link>
             <button
               onClick={() => { irAMayorista(); setOpen(false) }}
-              className="text-white"
-              style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'Fredoka', fontWeight: 700, fontSize: '16px' }}
+              className="text-white text-xl py-2"
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
             >
               Mayorista
             </button>
@@ -111,7 +122,7 @@ export default function Navbar() {
               href="https://wa.me/573124067757"
               target="_blank"
               rel="noreferrer"
-              className="bg-white text-verde px-6 py-2 rounded-full"
+              className="bg-white text-verde px-10 py-3 rounded-full text-xl font-bold"
             >
               Pedir Ahora
             </a>
