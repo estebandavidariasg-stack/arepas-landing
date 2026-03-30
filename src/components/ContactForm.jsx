@@ -62,8 +62,8 @@ export default function ContactForm() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="bg-white rounded-2xl mx-auto"
-        style={{ maxWidth: '800px', padding: '48px 40px', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}
+        className="bg-white rounded-2xl mx-auto w-full md:w-auto px-[20px] md:px-[40px] py-[32px] md:py-[48px]"
+        style={{ maxWidth: '800px', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}
       >
         {status === 'success' ? (
           /* Mensaje de gracias */

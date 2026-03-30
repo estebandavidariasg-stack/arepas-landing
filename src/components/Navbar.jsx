@@ -54,24 +54,16 @@ export default function Navbar() {
         <button
           onClick={() => setOpen(!open)}
           className="flex flex-col justify-center items-center gap-1.5"
-          style={{ width: '44px', height: '44px' }}
-          aria-label="Abrir menú"
+          style={{ width: '44px', height: '44px', border: 'none', background: 'none', outline: 'none' }}
         >
-          <span
-            className="block bg-white rounded-full transition-all duration-300"
-            style={{ width: '26px', height: '3px', transformOrigin: 'center',
-              transform: open ? 'rotate(45deg) translate(5px, 5px)' : 'none' }}
-          />
-          <span
-            className="block bg-white rounded-full transition-all duration-300"
+          <span className="block bg-white rounded-full transition-all duration-300"
             style={{ width: '26px', height: '3px',
-              opacity: open ? 0 : 1 }}
-          />
-          <span
-            className="block bg-white rounded-full transition-all duration-300"
-            style={{ width: '26px', height: '3px', transformOrigin: 'center',
-              transform: open ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }}
-          />
+              transform: open ? 'translateY(9px) rotate(45deg)' : 'none' }} />
+          <span className="block bg-white rounded-full transition-all duration-300"
+            style={{ width: '26px', height: '3px', opacity: open ? 0 : 1 }} />
+          <span className="block bg-white rounded-full transition-all duration-300"
+            style={{ width: '26px', height: '3px',
+              transform: open ? 'translateY(-9px) rotate(-45deg)' : 'none' }} />
         </button>
       </div>
 
