@@ -22,9 +22,61 @@ export default function Navbar() {
       className="sticky top-0 z-50 mx-6 rounded-b-3xl shadow-lg"
       style={{ background: 'linear-gradient(135deg, #E8820C 0%, #F5A623 50%, #FFBE3D 100%)' }}
     >
-      <div className="w-full px-6 py-3 grid grid-cols-3 items-center">
+      {/* ── MÓVIL ── */}
+      <div className="flex md:hidden items-center justify-between px-4 py-3">
+        {/* Spacer izquierdo para centrar logo */}
+        <div style={{ width: '44px' }} />
 
-        {/* Columna izquierda — Logo */}
+        {/* Logo centrado */}
+        <Link to="/">
+          <div className="relative" style={{ width: '80px', height: '80px' }}>
+            <svg viewBox="0 0 140 140" className="absolute inset-0 w-full h-full">
+              <circle cx="70" cy="70" r="68" fill="rgba(255,255,255,0.15)" />
+              <defs>
+                <path id="circulo-nav-m" d="M 70,70 m -54,0 a 54,54 0 1,1 108,0 a 54,54 0 1,1 -108,0" />
+              </defs>
+              <text style={{ fontFamily: 'Fredoka', fontWeight: 700, fontSize: '11.5px', fill: 'white', letterSpacing: '1.5px' }}>
+                <textPath href="#circulo-nav-m" startOffset="5%">
+                  AREPAS DOÑA AMPARO • AREPAS DOÑA AMPARO •
+                </textPath>
+              </text>
+            </svg>
+            <img
+              src={logo}
+              alt="Logo"
+              className="absolute"
+              style={{ width: '55px', height: '55px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', objectFit: 'contain' }}
+            />
+          </div>
+        </Link>
+
+        {/* Hamburguesa — tres líneas */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="flex flex-col justify-center items-center gap-1.5"
+          style={{ width: '44px', height: '44px' }}
+          aria-label="Abrir menú"
+        >
+          <span
+            className="block bg-white rounded-full transition-all duration-300"
+            style={{ width: '26px', height: '3px', transformOrigin: 'center',
+              transform: open ? 'rotate(45deg) translate(5px, 5px)' : 'none' }}
+          />
+          <span
+            className="block bg-white rounded-full transition-all duration-300"
+            style={{ width: '26px', height: '3px',
+              opacity: open ? 0 : 1 }}
+          />
+          <span
+            className="block bg-white rounded-full transition-all duration-300"
+            style={{ width: '26px', height: '3px', transformOrigin: 'center',
+              transform: open ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }}
+          />
+        </button>
+      </div>
+
+      {/* ── ESCRITORIO ── (sin cambios) */}
+      <div className="hidden md:grid w-full px-6 py-3 grid-cols-3 items-center">
         <Link to="/">
           <div className="relative" style={{ width: '110px', height: '110px', marginLeft: '90px' }}>
             <svg viewBox="0 0 140 140" className="absolute inset-0 w-full h-full">
@@ -34,7 +86,7 @@ export default function Navbar() {
               </defs>
               <text style={{ fontFamily: 'Fredoka', fontWeight: 700, fontSize: '11.5px', fill: 'white', letterSpacing: '1.5px' }}>
                 <textPath href="#circulo-nav" startOffset="5%">
-                  AREPAS DE LA ABUELA • AREPAS DE LA ABUELA •
+                  AREPAS DOÑA AMPARO • AREPAS DOÑA AMPARO •
                 </textPath>
               </text>
             </svg>
@@ -47,8 +99,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Columna central — Links */}
-        <div className="hidden md:flex items-center justify-center gap-8" style={{ marginLeft: '140px' }}>
+        <div className="flex items-center justify-center gap-8" style={{ marginLeft: '140px' }}>
           <Link
             to="/"
             className="hover:text-white transition-colors text-verde"
@@ -56,7 +107,6 @@ export default function Navbar() {
           >
             Inicio
           </Link>
-
           <button
             onClick={irAMayorista}
             className="hover:text-white transition-colors text-verde"
@@ -64,7 +114,6 @@ export default function Navbar() {
           >
             Mayorista
           </button>
-
           <a
             href="https://wa.me/573124067757"
             target="_blank"
@@ -76,18 +125,10 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Columna derecha — Hamburguesa móvil */}
-        <div className="flex justify-end">
-          <button
-            className="md:hidden text-white font-bold text-2xl"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? 'X' : 'Menu'}
-          </button>
-        </div>
+        <div />
       </div>
 
-      {/* Menú móvil */}
+      {/* Menú móvil desplegable */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -95,15 +136,15 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden flex flex-col items-end gap-4 pt-2 pb-4 pr-6"
+            className="md:hidden flex flex-col items-center gap-4 pt-2 pb-5"
             style={{ fontFamily: 'Fredoka', fontWeight: 700 }}
           >
-            <Link to="/" className="text-white text-lg" onClick={() => setOpen(false)}>
+            <Link to="/" className="text-white text-xl" onClick={() => setOpen(false)}>
               Inicio
             </Link>
             <button
               onClick={() => { irAMayorista(); setOpen(false) }}
-              className="text-white text-lg"
+              className="text-white text-xl"
               style={{ background: 'none', border: 'none', cursor: 'pointer' }}
             >
               Mayorista
@@ -112,7 +153,8 @@ export default function Navbar() {
               href="https://wa.me/573124067757"
               target="_blank"
               rel="noreferrer"
-              className="bg-white text-verde px-8 py-2 rounded-full text-lg font-bold"
+              className="bg-white text-verde px-8 py-2 rounded-full text-xl font-bold"
+              onClick={() => setOpen(false)}
             >
               Pedir Ahora
             </a>

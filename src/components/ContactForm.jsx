@@ -106,7 +106,7 @@ export default function ContactForm() {
           <>
             <h2
               className="font-fredoka font-bold text-verde text-center"
-              style={{ fontSize: 'clamp(24px, 4vw, 42px)', marginBottom: '8px' }}
+              style={{ fontSize: 'clamp(30px, 4vw, 42px)', marginBottom: '8px' }}
             >
               SOLICITA INFORMACIÓN
             </h2>

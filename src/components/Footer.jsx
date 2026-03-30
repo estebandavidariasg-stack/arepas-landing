@@ -12,44 +12,41 @@ export default function Footer() {
         marginBottom: '16px',
       }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto" style={{ gap: '200px' }}>
+      {/* gap-8 en móvil, gap desktop con style */}
+      <div className="grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-12 md:gap-[200px]">
 
-      {/* Columna 1 — Logo + descripción */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-col items-start gap-6 w-full"
-      >
-        {/* Logo con texto circular */}
-        <div className="relative" style={{ width: '140px', height: '140px', marginLeft: "40px" }}>
-          <svg viewBox="0 0 140 140" className="absolute inset-0 w-full h-full">
-            {/* Fondo círculo amarillo */}
-            <circle cx="70" cy="70" r="68" fill="#F5A623" />
-            {/* Texto circular */}
-            <defs>
-              <path id="circulo" d="M 70,70 m -54,0 a 54,54 0 1,1 108,0 a 54,54 0 1,1 -108,0"/>
-            </defs>
-            <text style={{ fontFamily: 'Fredoka', fontWeight: 700, fontSize: '11.5px', fill: 'white', letterSpacing: '1.5px' }}>
-              <textPath href="#circulo" startOffset="5%">
-                AREPAS DE LA ABUELA • AREPAS DE LA ABUELA •
-              </textPath>
-            </text>
-          </svg>
-          {/* Logo centrado */}
-          <img
-            src={logo}
-            alt="Arepas de la Abuela"
-            className="absolute"
-            style={{ width: '90px', height: '90px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', objectFit: 'contain'  }}
-          />
-        </div>
+        {/* Columna 1 — Logo + descripción */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center md:items-start gap-6 w-full"
+        >
+          <div className="relative" style={{ width: '140px', height: '140px', marginLeft: 'auto', marginRight: 'auto' }}>
+            <svg viewBox="0 0 140 140" className="absolute inset-0 w-full h-full">
+              <circle cx="70" cy="70" r="68" fill="#F5A623" />
+              <defs>
+                <path id="circulo" d="M 70,70 m -54,0 a 54,54 0 1,1 108,0 a 54,54 0 1,1 -108,0"/>
+              </defs>
+              <text style={{ fontFamily: 'Fredoka', fontWeight: 700, fontSize: '11.5px', fill: 'white', letterSpacing: '1.5px' }}>
+                <textPath href="#circulo" startOffset="5%">
+                  AREPAS DOÑA AMPARO • AREPAS DOÑA AMPARO •
+                </textPath>
+              </text>
+            </svg>
+            <img
+              src={logo}
+              alt="Arepas de la Abuela"
+              className="absolute"
+              style={{ width: '90px', height: '90px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', objectFit: 'contain' }}
+            />
+          </div>
 
-        <p className="font-body text-white" style={{ fontSize: '14px', opacity: 0.85, maxWidth: '400px' }}>
-          Felicidad en una mordida. Arepas artesanales 100% orgánicas elaboradas con amor en San Vicente del Caguán.
-        </p>
-      </motion.div>
+          <p className="font-body text-white text-center md:text-center" style={{ fontSize: '14px', opacity: 0.85, maxWidth: '400px' }}>
+            Felicidad en una mordida. Arepas artesanales 100% orgánicas elaboradas con amor en San Vicente del Caguán.
+          </p>
+        </motion.div>
 
         {/* Columna 2 — Contacto */}
         <motion.div
@@ -57,31 +54,30 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-col gap-4 w-full"
+          className="flex flex-col items-center md:items-start gap-4 w-full"
         >
-          <h3
-            className="font-fredoka font-bold text-naranja"
-            style={{ fontSize: '20px' }}
-          >
+          <h3 className="font-fredoka font-bold text-naranja" style={{ fontSize: '20px' }}>
             CONTACTO
           </h3>
 
-          <div className="flex flex-col gap-3">
-            <a href="tel:3214703077" className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
-              <Phone size={18} color="#F5A623" />
-              321 470 3077
-            </a>
-            <a href="https://wa.me/573124067757" className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
-              <Phone size={18} color="#F5A623" />
-              312 406 7757 (Bogotá)
-            </a>
-            <a href="mailto:info@arepasdelaabuela.com" className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
-              <Mail size={18} color="#F5A623" />
-              info@arepasdelaabuela.com
-            </a>
-            <div className="flex items-center gap-3 text-white" style={{ fontSize: '15px' }}>
-              <MapPin size={28} color="#F5A623" />
-              San Vicente del Caguán, Caquetá, Colombia
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <div className="flex flex-col gap-3 text-left">
+              <a href="tel:3214703077" className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
+                <Phone size={18} color="#F5A623" />
+                321 470 3077
+              </a>
+              <a href="https://wa.me/573124067757" className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
+                <Phone size={18} color="#F5A623" />
+                312 406 7757 (Bogotá)
+              </a>
+              <a href="mailto:info@arepasdelaabuela.com" className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
+                <Mail size={18} color="#F5A623" />
+                info@arepasdelaabuela.com
+              </a>
+              <div className="flex items-center gap-3 text-white" style={{ fontSize: '15px' }}>
+                <MapPin size={18} color="#F5A623" className="flex-shrink-0" />
+                San Vicente del Caguán, Caquetá, Colombia
+              </div>
             </div>
           </div>
         </motion.div>
@@ -92,33 +88,21 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-col gap-4 w-full"
+          className="flex flex-col items-center md:items-start gap-4 w-full"
         >
-          <h3
-            className="font-fredoka font-bold text-naranja"
-            style={{ fontSize: '20px' }}
-          >
+          <h3 className="font-fredoka font-bold text-naranja" style={{ fontSize: '20px' }}>
             SÍGUENOS
           </h3>
-          <p className="font-body text-white" style={{ fontSize: '14px', opacity: 0.85 }}>
+          <p className="font-body text-white text-center md:text-left" style={{ fontSize: '14px', opacity: 0.85 }}>
             Conecta con nosotros en redes sociales
           </p>
 
           <div className="flex gap-4 mt-2">
-            {/* Facebook */}
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://facebook.com" target="_blank" rel="noreferrer">
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 className="flex items-center justify-center rounded-full"
-                style={{
-                  width: '48px',
-                  height: '48px',
-                  background: 'linear-gradient(135deg, #E8820C 0%, #F5A623 100%)',
-                }}
+                style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #E8820C 0%, #F5A623 100%)' }}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
@@ -126,20 +110,11 @@ export default function Footer() {
               </motion.div>
             </a>
 
-            {/* Instagram */}
-            <a
-              href="https://www.instagram.com/arepasdelaabuela24?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://www.instagram.com/arepasdelaabuela24?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer">
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 className="flex items-center justify-center rounded-full"
-                style={{
-                  width: '48px',
-                  height: '48px',
-                  background: 'linear-gradient(135deg, #E8820C 0%, #F5A623 100%)',
-                }}
+                style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #E8820C 0%, #F5A623 100%)' }}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -155,7 +130,7 @@ export default function Footer() {
       {/* Línea divisora */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', marginTop: '36px', paddingTop: '20px' }}>
         <p className="font-body text-center text-white" style={{ fontSize: '13px', opacity: 0.6 }}>
-          © 2026 Arepas de la Abuela. Todos los derechos reservados.
+          © 2026 Arepas Doña Amparo. Todos los derechos reservados.
         </p>
       </div>
     </footer>
