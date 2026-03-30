@@ -1,14 +1,12 @@
 import nodemailer from 'nodemailer'
 
 export default async function handler(req, res) {
-  // Solo aceptar POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método no permitido' })
   }
 
   const { nombre, empresa, email, telefono, ciudad, mensaje } = req.body
 
-  // Configurar transporter con Gmail
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -19,7 +17,7 @@ export default async function handler(req, res) {
 
   try {
     await transporter.sendMail({
-      from: `"Arepas de la Abuela" <${process.env.VITE_EMAIL_USER}>`,
+      from: `"Arepas Doña Amparo" <${process.env.VITE_EMAIL_USER}>`,
       to: process.env.VITE_EMAIL_TO,
       subject: `Nueva solicitud de mayorista — ${nombre}`,
       html: `
@@ -33,11 +31,10 @@ export default async function handler(req, res) {
           <p><strong>Ciudad:</strong> ${ciudad}</p>
           <p><strong>Mensaje:</strong> ${mensaje || 'Sin mensaje'}</p>
           <hr style="border-color: #F5A623;" />
-          <p style="color: #F5A623; font-size: 12px;">Arepas de la Abuela — San Vicente del Caguán</p>
+          <p style="color: #F5A623; font-size: 12px;">Arepas Doña Amparo — San Vicente del Caguán</p>
         </div>
       `,
     })
-
     return res.status(200).json({ success: true })
   } catch (error) {
     console.error(error)
