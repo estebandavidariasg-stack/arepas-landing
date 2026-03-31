@@ -56,8 +56,12 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-modak text-white leading-none relative z-10 w-full"
-            style={{ fontSize: '80px', marginTop: '70px', marginLeft:"-5px" }}
+            className="
+              font-modak text-white leading-none relative z-10 w-full
+              text-center flex justify-center
+              text-[73px] sm:text-[60px] md:text-[80px]
+              mt-[70px] sm:mt-[60px] md:mt-[70px]
+            "
           >
             Mordida
           </motion.h1>
