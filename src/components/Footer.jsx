@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import logo from '../assets/logo.png'
+import { FaTiktok } from "react-icons/fa";
+
 
 export default function Footer() {
   return (
@@ -62,17 +64,17 @@ export default function Footer() {
 
           <div className="flex flex-col items-center md:items-start gap-3">
             <div className="flex flex-col gap-3 text-left">
-              <a href="tel:3214703077" className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
+              <a href="https://wa.me/573208859070" className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
                 <Phone size={18} color="#F5A623" />
-                321 470 3077
+                320 885 9070 (San Vicente del Cagúan)
               </a>
-              <a href="https://wa.me/573124067757" className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
+              <a href="https://wa.me/57 " className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
                 <Phone size={18} color="#F5A623" />
                 312 406 7757 (Bogotá)
               </a>
-              <a href="mailto:info@arepasdelaabuela.com" className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
+              <a href="mailto:arepasdonaamparo@gmail.com" className="flex items-center gap-3 text-white hover:text-naranja transition-colors" style={{ fontSize: '15px' }}>
                 <Mail size={18} color="#F5A623" />
-                info@arepasdelaabuela.com
+                arepasdonaamparo@gmail.com
               </a>
               <div className="flex items-center gap-3 text-white" style={{ fontSize: '15px' }}>
                 <MapPin size={18} color="#F5A623" className="flex-shrink-0" />
@@ -98,15 +100,21 @@ export default function Footer() {
           </p>
 
           <div className="flex gap-4 mt-2">
-            <a href="https://facebook.com" target="_blank" rel="noreferrer">
+            <a 
+              href="https://www.tiktok.com/@arepasamparo?_r=1&_t=ZS-95JyKHYwgLd" 
+              target="_blank" 
+              rel="noreferrer"
+            >
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 className="flex items-center justify-center rounded-full"
-                style={{ width: '48px', height: '48px', background: 'linear-gradient(135deg, #E8820C 0%, #F5A623 100%)' }}
+                style={{ 
+                  width: '48px', 
+                  height: '48px', 
+                  background: 'linear-gradient(135deg, #E8820C 0%, #F5A623 100%)' 
+                }}
               >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                </svg>
+                <FaTiktok size={22} color="white" />
               </motion.div>
             </a>
 

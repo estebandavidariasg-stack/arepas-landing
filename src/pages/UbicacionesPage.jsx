@@ -6,14 +6,14 @@ const ubicaciones = [
   {
     titulo: 'Punto de Producción Principal',
     direccion: 'San Vicente del Caguán, Zona Rural\nCaquetá, Colombia',
-    telefono: '321 470 3077',
+    telefono: '320 885 9070',
     horario: 'Lunes a Sábado: 6:00 AM – 4:00 PM',
     maps: 'https://maps.google.com/?q=San+Vicente+del+Caguan,+Caqueta,+Colombia',
   },
   {
     titulo: 'Distribución Bogotá',
-    direccion: 'Av. Boyacá con Calle 80\nBogotá, Colombia',
-    telefono: '321 319 1455',
+    direccion: 'Bogotá',
+    telefono: '312 406 7757',
     horario: 'Lunes a Viernes: 8:00 AM – 6:00 PM',
     maps: 'https://maps.google.com/?q=Av+Boyaca+con+Calle+80,+Bogota,+Colombia',
   },
